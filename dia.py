@@ -87,7 +87,7 @@ class Ui_Dialog2(object):
         self.label_3.setText(_translate("Dialog", "Password:"))
         self.pushButton.setText(_translate("Dialog", "Generate"))
         self.radioButton.setText(_translate("Dialog", "Show"))
-        self.label_4.setText(_translate("Dialog", "Re-Generate:"))
+        self.label_4.setText(_translate("Dialog", "Generate:"))
         self.checkBox.setText(_translate("Dialog", "Small Letters"))
         self.checkBox_2.setText(_translate("Dialog", "Capital Letters"))
         self.checkBox_3.setText(_translate("Dialog", "Numbers"))

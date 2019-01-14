@@ -1,29 +1,20 @@
 import sqlite3
-import time
 import hashlib
 import getPassword
 
 
-def login():
-    while True:
-        username = input("Username: ")
-        password = input("Password: ")
-        with sqlite3.connect("UPDB.db") as db:
-            cursor = db.cursor()
-        cursor.execute("SELECT * FROM user WHERE username=? AND password=?",(username, hashlib.sha224(password.encode('utf-8')).hexdigest(),))
-        results = cursor.fetchall()
-        print(results)
+def login(username,password):
+    with sqlite3.connect("UPDB.db") as db:
+        cursor = db.cursor()
+    cursor.execute("SELECT * FROM user WHERE username=? AND password=?",(username, hashlib.sha224(password.encode('utf-8')).hexdigest(),))
+    results = cursor.fetchall()
+    if results:
+        print("Welcome ")
+        cursor.execute("SELECT userID FROM user WHERE username=? AND password=?",(username, hashlib.sha224(password.encode('utf-8')).hexdigest(),))
+        return cursor.fetchall()
+    else:
+        return None
 
-        if results:
-            print("Welcome ")
-            break
-        else:
-            print("Username and password not recognized.")
-            again = input("Do you wanna try again?(y/n): ")
-            if(again.lower() == "n"):
-                print("Bye!")
-                time.sleep(1)
-                break
 
 def newUser():
     found = 0
@@ -78,5 +69,16 @@ def get_website_password(user_ID, website_name):
     else:
         print(results)
 
+def get_website_names(user_ID):
+    db = sqlite3.connect("UPDB.db")
+    cursor = db.cursor()
+    cursor.execute("SELECT website FROM bank WHERE userID=?",(user_ID,))
+    results = cursor.fetchall()
+    if(not results):
+        return None
+    else:
+        print(results)
 
-add_new_website(1,"facebook")
+#newUser()
+#add_new_website(1,"pizza")
+#get_website_names(1)

@@ -4,6 +4,7 @@ import sys
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QApplication, QMainWindow
 from dia import Ui_Dialog2
+#from login_func import *
 
 
 class Ui_MainWindow(object):
@@ -14,6 +15,8 @@ class Ui_MainWindow(object):
         self.window.show()
 
     def setupUi(self, MainWindow):
+        #id = login(self.lineEdit.text(),self.lineEdit_2.text())
+        #t = get_website_names(id)
         x = ''
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(480, 640)
@@ -77,6 +80,8 @@ class Ui_MainWindow(object):
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
+        #id = login(self.lineEdit.text(),self.lineEdit_2.text())
+        #t = get_website_names(id)
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.textBrowser.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
@@ -85,6 +90,6 @@ class Ui_MainWindow(object):
 "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:48pt; font-weight:600; color:#bf0e01;\">Jaque</span><span style=\" font-size:48pt; font-weight:600; color:#a6a6a6;\">Bank</span></p></body></html>"))
         self.pushButton_3.setText(_translate("MainWindow", "Copy"))
-        self.pushButton_2.setText(_translate("MainWindow", "Example Password"))
+        self.pushButton_2.setText(_translate("MainWindow", "example"))
         self.pushButton.setText(_translate("MainWindow", "Add"))
         self.menuSettings.setTitle(_translate("MainWindow", "Settings"))
